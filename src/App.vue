@@ -1,6 +1,53 @@
 <template>
-  <router-view />
+  <!-- <div v-if="pageLoaded"> -->
+  <div>
+    <div v-if="!mobile" class="app flex flex-column">
+      <Navigation />
+      <div class="app-content flex flex-column">
+        <!-- <Modal /> -->
+        <!-- <Modal v-if="modalActive" /> -->
+        <!-- <transition class="form">
+          <FormModal v-if="formModal" />
+        </transition> -->
+        <router-view />
+      </div>
+    </div>
+        
+    <div v-else class="mobile-message flex flex-column">
+      <h2>Sorry, this app is not supported on Mobile Devices</h2>
+      <p>To use this app, please use a computer or Tablet</p>
+    </div>
+  </div>
 </template>
+
+<script>
+import Navigation from './components/Navigation.vue'
+export default {
+  data() {
+    return {
+      mobile: null,
+    };
+  },
+  created() {
+    this.checkScreen();
+    window.addEventListener("resize", this.checkScreen)
+  },
+  components: {
+    Navigation,
+  },
+  methods: {
+    checkScreen() {
+      const windowWidth = window.innerWidth;
+      if (windowWidth <= 750) {
+        this.mobile = true;
+        return;
+      }
+      this.mobile = false;
+    }
+  },
+  computed: {},
+}
+</script>
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -10,8 +57,47 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #141625;
+//   background-color: #141625;
 }
+
+.app {
+    background-color: #141625;
+    min-height: 100vh;
+    @media (min-width: 900px) {
+        flex-direction: row !important;
+    }
+
+    .app-content {
+        padding: 0 20px;
+        flex: 1;
+        position: relative;
+    }
+}
+
+.mobile-message {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100hv;
+    background-color: #141625;
+    color: #fff;
+
+    p {
+        margin-top: 16px;
+    }
+}
+
+// animated invoice
+.invoice-enter-active,
+.invoice-leave-active {
+    transition: 0.8s ease all;
+}
+
+.invoice-enter-from,
+.invoice-leave-to {
+    transform: translateX(-700px);
+}
+
 
 button,
 .button {
@@ -23,9 +109,14 @@ button,
   margin-right: 8px;
   color: #fff;
 }
+button,
+.button {
+    color: #fff;
+    border: none;
+}
 
 .dark-purple {
-  background-color: #252945;
+  background-color: #4c4d52;
 }
 
 .red {
@@ -36,6 +127,10 @@ button,
   background-color: #7c5dfa;
 }
 
+.blue {
+  background-color: #536dfe;
+}
+
 .green {
   background-color: #33d69f;
 }
@@ -43,7 +138,6 @@ button,
 .orange {
   background-color: #ff8f00;
 }
-
 // utility classes
 
 .flex {
