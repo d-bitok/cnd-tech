@@ -45,14 +45,14 @@
       <div class="left flex flex-column">
         <div class="service">
           <img src="@/assets/cnd_Business.svg" alt="" />
-          <h3>No Requests Made Yet</h3>
+          <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
       <div class="right flex">
         <div class="service">
           <img src="@/assets/cnd_Circuit.svg" alt="" />
-          <h3>No Requests Made Yet</h3>
+          <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
@@ -61,14 +61,14 @@
       <div class="left flex flex-column">
         <div class="service">
           <img src="@/assets/cnd_Fixing.svg" alt="" />
-          <h3>No Requests Made Yet</h3>
+          <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
       <div class="right flex">
         <div class="service">
           <img src="@/assets/cnd_Focus.svg" alt="" />
-          <h3>No Requests Made Yet</h3>
+          <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
@@ -77,14 +77,14 @@
       <div class="left flex flex-column">
         <div class="service">
           <img src="@/assets/cnd-Interaction.svg" alt="" />
-          <h3>No Requests Made Yet</h3>
+          <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
       <div class="right flex">
         <div class="service">
           <img src="@/assets/cnd-Connected.svg" alt="" />
-          <h3>No Requests Made Yet</h3>
+          <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
@@ -96,6 +96,11 @@
 <script>
 export default {
   name: "Home",
+  data() {
+    return {
+      filterMenu: null,
+    }
+  },
   components: {},
 };
 </script>
@@ -180,7 +185,7 @@ export default {
   }
 
   .empty {
-    margin-top: 50px;
+    margin-top: 150px;
     align-items: center;
 
     img {
@@ -205,10 +210,6 @@ export default {
   .service {
     margin-top: 20px;
     align-items: center;
-    background-color: #536dfe35;
-    padding: 20px;
-    border-radius: 16px;
-    margin: 10px;
 
     img {
       width: 360px;
@@ -222,6 +223,10 @@ export default {
       }
 
     p {
+    background-color: #536dfe35;
+    padding: 20px;
+    border-radius: 16px;
+    margin: 10px;
       text-align: center;
       max-width: 100vh;
       font-size: 12px;
