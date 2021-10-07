@@ -1,7 +1,7 @@
 <template>
   <div class="request-wrap flex flex-column">
       <form @submit.prevent="submitForm" class="request-content">
-        <!-- <Loading v-show="loading" /> -->
+        <Loading v-show="loading" />
         <h1 v-if="!editRequest">New Request</h1>
         <h1 v-else>Edit Request</h1>
         
@@ -119,11 +119,17 @@
 </template>
 
 <script>
-import db from '../firebase/firebase';
+import db from '../firebase/firebase-db';
+import Loading from "../components/Loading.vue"
 import { mapMutations } from 'vuex'
 import { uid } from "uid"
 export default {
     name: 'requestModal',
+
+    components: {
+      Loading,
+    },
+
     data() {
         return {
             dateOptions: { year: 'numeric', month: 'short', day: 'numeric' },
@@ -219,6 +225,8 @@ export default {
           return;
         }
 
+        this.loading = true;
+
         this.calRequestTotal();
 
         const database = db.collection("requests").doc();
@@ -243,6 +251,8 @@ export default {
           requestItemList: this.requestItemList,
           requestTotal: this.requestTotal,
         });
+
+        this.loading = false;
 
         this.TOGGLE_REQUEST();
       },

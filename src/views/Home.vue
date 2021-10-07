@@ -43,14 +43,14 @@
     </div>
     <div class="header flex">
       <div class="left flex flex-column">
-        <div class="service">
+        <div @click="newRequest" class="service">
           <img src="@/assets/cnd_Business.svg" alt="" />
           <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
       <div class="right flex">
-        <div class="service">
+        <div @click="newRequest" class="service">
           <img src="@/assets/cnd_Circuit.svg" alt="" />
           <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
@@ -59,15 +59,47 @@
     </div>
     <div class="header flex">
       <div class="left flex flex-column">
-        <div class="service">
+        <div @click="newRequest" class="service">
           <img src="@/assets/cnd_Fixing.svg" alt="" />
           <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
       </div>
       <div class="right flex">
-        <div class="service">
+        <div @click="newRequest" class="service">
           <img src="@/assets/cnd_Focus.svg" alt="" />
+          <h3>Service Title</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
+        </div>
+      </div>
+    </div>
+    <div class="header flex">
+      <div class="left flex flex-column">
+        <div @click="newRequest" class="service">
+          <img src="@/assets/cnd_Futuristic.svg" alt="" />
+          <h3>Service Title</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
+        </div>
+      </div>
+      <div class="right flex">
+        <div @click="newRequest" class="service">
+          <img src="@/assets/cnd_Global.svg" alt="" />
+          <h3>Service Title</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
+        </div>
+      </div>
+    </div>
+    <div class="header flex">
+      <div class="left flex flex-column">
+        <div @click="newRequest" class="service">
+          <img src="@/assets/cnd_Authentication.svg" alt="" />
+          <h3>Service Title</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
+        </div>
+      </div>
+      <div class="right flex">
+        <div @click="newRequest" class="service">
+          <img src="@/assets/cnd_Multiplatform.svg" alt="" />
           <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
@@ -84,6 +116,22 @@
       <div class="right flex">
         <div class="service">
           <img src="@/assets/cnd-Connected.svg" alt="" />
+          <h3>Service Title</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
+        </div>
+      </div>
+    </div>
+    <div class="header flex">
+      <div class="left flex flex-column">
+        <div class="service">
+          <img src="@/assets/cnd_Team.svg" alt="" />
+          <h3>Service Title</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
+        </div>
+      </div>
+      <div class="right flex">
+        <div class="service">
+          <img src="@/assets/cnd_Server_cluster.svg" alt="" />
           <h3>Service Title</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quaerat quibusdam pariatur. Nemo laboriosam sapiente quam consectetur doloremque esse aliquid quibusdam veritatis quos. Autem doloremque consequatur, molestias error eos repudiandae.</p>
         </div>
@@ -219,13 +267,18 @@ export default {
   }
 
   .service {
-    margin-top: 20px;
+    margin: 20px;
     align-items: center;
     box-shadow: 10px 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #2a2e5034;
+    cursor: pointer;
 
     img {
       width: 360px;
       height: 250px;
+      left: 30px;
     }
 
     h3 {
@@ -235,7 +288,7 @@ export default {
       }
 
     p {
-    background-color: #536dfe35;
+    background-color: #536dfe09;
     padding: 20px;
     border-radius: 16px;
     margin: 10px;
