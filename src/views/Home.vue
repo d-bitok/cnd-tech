@@ -6,7 +6,7 @@
         <span>For All Your Software Development Needs</span>
       </div>
       <div class="right flex">
-        <div class="filter flex">
+        <div @click="toggleFilterMenu" class="filter flex">
           <span>Filter Requests
             <span v-if="filteredRequests">
               : {{ filteredRequests }}
@@ -94,6 +94,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex"
 export default {
   name: "Home",
   data() {
@@ -102,6 +103,16 @@ export default {
     }
   },
   components: {},
+  methods: {
+    ...mapMutations(["TOGGLE_REQUEST"]),
+    newRequest() {
+      this.TOGGLE_REQUEST();
+    },
+
+    toggleFilterMenu() {
+      this.filterMenu = !this.filterMenu;
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -210,6 +221,7 @@ export default {
   .service {
     margin-top: 20px;
     align-items: center;
+    box-shadow: 10px 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
     img {
       width: 360px;

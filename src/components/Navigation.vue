@@ -16,7 +16,7 @@ export default {
 header {
   z-index: 99;
   flex-direction: row;
-  background-color: #1e213991;
+  background-color: #1e2139;
   @media (min-width: 900px) {
     min-height: 100%;
     min-width: 90px;

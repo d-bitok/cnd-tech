@@ -6,9 +6,9 @@
       <div class="app-content flex flex-column">
         <!-- <Modal /> -->
         <!-- <Modal v-if="modalActive" /> -->
-        <!-- <transition class="form">
-          <FormModal v-if="formModal" />
-        </transition> -->
+        <transition name="request">
+          <RequestModal v-if="requestModal" />
+        </transition>
         <router-view />
       </div>
     </div>
@@ -21,7 +21,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Navigation from './components/Navigation.vue'
+import RequestModal from './components/RequestModal.vue'
+
 export default {
   data() {
     return {
@@ -34,8 +37,10 @@ export default {
   },
   components: {
     Navigation,
+    RequestModal,
   },
   methods: {
+
     checkScreen() {
       const windowWidth = window.innerWidth;
       if (windowWidth <= 750) {
@@ -45,7 +50,13 @@ export default {
       this.mobile = false;
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(
+      [
+        "requestModal",
+      ]
+    )
+  },
 }
 </script>
 
@@ -87,14 +98,14 @@ export default {
     }
 }
 
-// animated invoice
-.invoice-enter-active,
-.invoice-leave-active {
-    transition: 0.8s ease all;
+// animated request
+.request-enter-active,
+.request-leave-active {
+    transition: 0.8s ease all
 }
 
-.invoice-enter-from,
-.invoice-leave-to {
+.request-enter-from,
+.request-leave-to {
     transform: translateX(-700px);
 }
 
