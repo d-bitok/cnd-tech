@@ -1,5 +1,5 @@
 <template>
-  <div class="request-wrap flex flex-column">
+  <div @click="checkClick" ref="requestWrap" class="request-wrap flex flex-column">
       <form @submit.prevent="submitForm" class="request-content">
         <Loading v-show="loading" />
         <h1 v-if="!editRequest">New Request</h1>
@@ -184,10 +184,21 @@ export default {
     },
 
     methods: {
-      ...mapMutations(["TOGGLE_REQUEST"]),
+      ...mapMutations(
+        [
+          "TOGGLE_REQUEST",
+          "TOGGLE_MODAL",
+        ]
+      ),
+
+      checkClick(e) {
+        if (e.target === this.$refs.requestWrap) {
+          this.TOGGLE_MODAL();
+        }
+      },
 
       closeRequest() {
-        this.TOGGLE_REQUEST();
+        this.TOGGLE_MODAL();
       },
 
       addNewRequestItem() {

@@ -4,8 +4,7 @@
     <div v-if="!mobile" class="app flex flex-column">
       <Navigation />
       <div class="app-content flex flex-column">
-        <!-- <Modal /> -->
-        <!-- <Modal v-if="modalActive" /> -->
+        <Modal v-if="modalActive" />
         <transition name="request">
           <RequestModal v-if="requestModal" />
         </transition>
@@ -24,6 +23,7 @@
 import { mapState } from 'vuex'
 import Navigation from './components/Navigation.vue'
 import RequestModal from './components/RequestModal.vue'
+import Modal from './components/Modal.vue'
 
 export default {
   data() {
@@ -38,6 +38,7 @@ export default {
   components: {
     Navigation,
     RequestModal,
+    Modal
   },
   methods: {
 
@@ -54,6 +55,7 @@ export default {
     ...mapState(
       [
         "requestModal",
+        "modalActive"
       ]
     )
   },
