@@ -1,6 +1,6 @@
 <template>
-  <!-- <div v-if="pageLoaded"> -->
   <div>
+  <!-- <div v-if="requestsLoaded"> -->
     <div v-if="!mobile" class="app flex flex-column">
       <Navigation />
       <div class="app-content flex flex-column">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Navigation from './components/Navigation.vue'
 import RequestModal from './components/RequestModal.vue'
 import Modal from './components/Modal.vue'
@@ -31,16 +31,18 @@ export default {
       mobile: null,
     };
   },
-  created() {
-    this.checkScreen();
-    window.addEventListener("resize", this.checkScreen)
-  },
   components: {
     Navigation,
     RequestModal,
     Modal
   },
+  created() {
+    this.GET_REQUESTS();
+    this.checkScreen();
+    window.addEventListener("resize", this.checkScreen)
+  },
   methods: {
+    ...mapActions(["GET_REQUESTS"]),
 
     checkScreen() {
       const windowWidth = window.innerWidth;
@@ -52,12 +54,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(
-      [
-        "requestModal",
-        "modalActive"
-      ]
-    )
+    ...mapState([
+      "requestModal", 
+      "modalActive", 
+      // "requestsLoaded"
+    ]),
   },
 }
 </script>
