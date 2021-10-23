@@ -29,3 +29,5 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # C&D Tech Web App
+
+Check out on [C&D Tech App](https://cnd-tech.web.app/) from your browser.
